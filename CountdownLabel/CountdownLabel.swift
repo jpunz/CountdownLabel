@@ -13,7 +13,7 @@ import UIKit
     @objc optional func countdownPaused()
     @objc optional func countdownFinished()
     @objc optional func countdownCancelled()
-    @objc optional func countingAt(timeCounted timeCounted: TimeInterval, timeRemaining: TimeInterval)
+    @objc optional func countingAt(timeCounted: TimeInterval, timeRemaining: TimeInterval)
 
 }
 extension TimeInterval {
@@ -164,7 +164,7 @@ class CountdownLabel: LTMorphingLabel {
     }
     
     // MARK: - Update
-    func updateLabel() {
+    @objc func updateLabel() {
         // delegate
         countdownDelegate?.countingAt?(timeCounted: timeCounted, timeRemaining: timeRemaining)
         
@@ -366,9 +366,9 @@ enum CountdownEffect {
 class CountdownAttributedText: NSObject {
     internal let text: String
     internal let replacement: String
-    internal let attributes: [String: AnyObject]?
+    internal let attributes: [NSAttributedStringKey: AnyObject]?
    
-    public init(text: String, replacement: String, attributes: [String: AnyObject]? = nil) {
+    public init(text: String, replacement: String, attributes: [NSAttributedStringKey: AnyObject]? = nil) {
         self.text = text
         self.replacement = replacement
         self.attributes = attributes
