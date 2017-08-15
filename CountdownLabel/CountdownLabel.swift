@@ -22,7 +22,7 @@ extension TimeInterval {
     }
 }
 
-class CountdownLabel: LTMorphingLabel {
+public class CountdownLabel: LTMorphingLabel {
     
     public typealias CountdownCompletion = () -> ()?
     public typealias CountdownExecution = () -> ()
@@ -339,7 +339,7 @@ extension CountdownLabel {
     }
 }
 
-enum CountdownEffect {
+public enum CountdownEffect {
     case Anvil
     case Burn
     case Evaporate
@@ -363,7 +363,7 @@ enum CountdownEffect {
     }
 }
 
-class CountdownAttributedText: NSObject {
+public class CountdownAttributedText: NSObject {
     internal let text: String
     internal let replacement: String
     internal let attributes: [NSAttributedStringKey: AnyObject]?
